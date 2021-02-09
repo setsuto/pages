@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+/* Webフォント読み込み */
+@font-face {
+  font-family: PixelMplus12;
+  src: url('./font/PixelMplus12-Regular.ttf') format('truetype'); /* IE9 Compat Modes		*/
+}
+
+@font-face {
+  font-family: PixelMplus10;
+  src: url('./font/PixelMplus10-Regular.ttf') format('truetype'); /* IE9 Compat Modes		*/
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: PixelMplus10;
+  /* font-family: PixelMplus10-Regular; */
+  color: #eee;
+  background-color: #000000;
+  /* background-color: #60b347; */
+}
+
+a {
+  outline: none;
+}
+li {
+  list-style-type: none;
+}
+
+/* LAYOUT */
+header {
+  position: relative;
+  height: 35vh;
+  /* border-bottom: 7px solid #eee; */
+}
+
+main {
+  height: 65vh;
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.left {
+  position: relative;
+  width: 52rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right {
+  width: 52rem;
+  font-size: 2rem;
+}
+
+/* ELEMENTS STYLE */
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.number {
+  background: #eee;
+  color: #333;
+  font-size: 6rem;
+  width: 15rem;
+  padding: 3rem 0rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.between {
+  font-size: 1.4rem;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.again {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.guess {
+  background: none;
+  border: 4px solid #eee;
+  font-family: inherit;
+  color: inherit;
+  font-size: 5rem;
+  padding: 2.5rem;
+  width: 25rem;
+  text-align: center;
+  display: block;
+  margin-bottom: 3rem;
+}
+
+.btn {
+  border: none;
+  background-color: #eee;
+  color: #222;
+  font-size: 2rem;
+  font-family: inherit;
+  padding: 2rem 3rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ccc;
+}
+
+.message {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 6rem;
+  height: 3rem;
+  display: inline-block;
+  line-height: 1.7;
+}
+
+.label-score {
+  margin-bottom: 2rem;
+}
+
+.bg {
+  background-image: url(./img/background_01.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 500px;
+  height: 150px;
+}
+
+.monster {
+  width: 150px;
+  margin: 0 auto;
+  animation: fuwafuwa 2s linear infinite;
+}
+
+/******************* MODAL STYLE ********************/
+
+/* .show-modal {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.75rem 3.5rem;
+  margin: 5rem 2rem;
+  border: none;
+  background-color: #fff;
+  color: #444;
+  border-radius: 10rem;
+  cursor: pointer;
+} */
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* width: 70%;
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3); */
+  z-index: 10;
+}
+
+.overlay {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.6); */
+  backdrop-filter: blur(2px);
+  z-index: 5;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0) translate(0, 0);
+  }
+  30% {
+    transform: scale(1, 1) translate(300px, 100px);
+  }
+  60% {
+    transform: scale(2, 2) translate(-200px, 100px);
+  }
+  100% {
+    transform: scale(3, 3) translate(100px, 0px);
+  }
+}
+
+@keyframes fuwafuwa {
+  0% {
+    transform: translateY(0);
+  }
+  33.33333% {
+    transform: translateY(-20px);
+  }
+  66.66667% {
+    transform: translateY();
+  }
+  100% {
+    transform: translateY(20);
+  }
+}

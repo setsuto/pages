@@ -1,0 +1,125 @@
+よなよな　よなかの三時
+まだまだ　全然　いけそうな感じ
+朝までぶっ通しで瀕死
+夜明けに　一人　ふら　ふらり
+
+用途に合わせたメソッドを使用することで開発意図が他の人に伝わりやすい！
+
+========================================
+メソッドまとめ
+========================================
+
+forEach() 
+⇒ 配列の要素一つ一つに何らかの処理を行いたい場合に使うメソッド
+
+例）
+const arry = [1,2,3,4,5];
+
+// forEach
+arry.forEach(v => console.log(v));
+// forEachメソッドを通してコールバック関数が実行、
+
+
+// for
+for(let i = 0; i < arry.length; i++) {
+  const v = arry[i];
+  console.log(v);
+}
+
+//基本的にforEachを使用したほうが記述がすっきりする。
+
+callback は次の 3 つの引数で呼び出される。
+1. 要素の値
+2. 要素のインデックス
+3. 走査されている配列
+
+
+
+
+
+reduce()
+⇒ 配列の中身を足し合わせたり、文字列として結合するときによく使う。
+
+例）
+const str = 'animation';
+const strArry = str.split('');
+// 1.文字列が一つずつ分割されて配列に置き換わる、strArryに格納。
+
+const result = strArry.reduce((accu, curr) => {
+  return accu + '<' + curr + '>';
+},'')
+// 2.currに値が一つずつ渡る。それをリターンで渡すと次のaccuの値に設定される
+//   このままだとaだけ<>に囲われないため、第二引数に初期値''（空文字）を設定。aが2ループ目に渡る。
+
+console.log(result);
+//⇒ <a><n><i><m><a><t><i><o><n><n>
+
+
+
+実践 ）：
+前回のreduceメソッドをコールバック関数として作成、コールバック関数とreduceの理解を深める。)
+
+const str = 'animation';
+const strArry = str.split('');
+// 配列に処理
+
+function tag(accu, curr) {
+  console.log(accu, curr);
+  return `${accu}<${curr}>`;
+}
+// <>で囲む処理
+
+function reduce(arry, callback, defaultValue) {
+// arry=>strArry 、callback=>tag、defaultValue=>""
+
+  let accu = defaultValue;
+  // let accu = defaultValueは実質let accu = ""
+  // accuの第一ループ目で空文字が渡るようにしてやる。
+
+  for(let i = 0; i < arry.length; i++) {
+    let curr = arry[i];
+    accu = callback(accu,curr);
+    // この時点でaccuの中身が "" からtagのreturnで返された値が格納される。
+    // 第二ループ目以降にfor文の処理が行われる。
+  }
+  return accu;
+  // リターンで返すことによって、最終的に文字列が結合したものが返される。
+}
+
+const result = reduce(strArry, tag, "");
+console.log(result);
+
+実践2 )
+文字を動かす。
+
+
+// ノーマル
+document.addEventListener('DOMContentLoaded', function() {
+  const el = document.querySelector('.animate-title');
+  const str = el.innerHTML.trim();
+  // trim()取得したHTMLの余計な余白を削除
+  let concatStr = '';
+
+  for (let c of str) {
+    c = c.replace(' ', '&nbsp;');
+    // PLAY ANIMATIONの半角スペースを実現するために、replaceメソッドを使用。
+    // ループ処理の際、半角スペースがわたってきたら特殊文字に置換するように処理。
+    concatStr += `<span class="char">${c}</span>`;
+  }
+  el.innerHTML = concatStr;
+});
+
+// reduce関数を使用
+document.addEventListener('DOMContentLoaded', function() {
+  const el = document.querySelector('.animate-title');
+  const str = el.innerHTML.trim().split('');
+ 
+  el.innerHTML = str.reduce((accu,curr) => {
+    curr = curr.replace(' ', '&nbsp;');
+    return `${accu}<span class="char">${curr}</span>`;
+  }, '');
+});
+
+// reduceメソッドを使ったことにより、ループ文とconcatStrという変数を定義する必要がなくなった。
+// 文字列(const str = el.innerHTML.trim().split('');)ができた段階で、innerHTMLに代入することができる。
+// なんでもできるfor文よりも、できることが限定されているreduceを使用したほうがコードの意味がわかりやすい。

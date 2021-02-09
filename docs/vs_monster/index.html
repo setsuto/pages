@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link type="text/css" rel="stylesheet" href="dqmenu.css" />
+    <title>vs Monsters</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="monster-text">キメラがあらわれた</h1>
+      <button class="btn again">再戦する</button>
+      <div class="number bg">
+        <div class="LP" style="display: none;">120</div>
+        <img class="monster fuwafuwa" src="./img/animal_stand_buta.png" alt="">
+      </div>
+    </header>
+    <main>
+      <section class="left">
+        <!-- <input type="number" class="guess"> -->
+        <!-- <button class="btn check">Check!</button> -->
+        <ul id="dqmenu">
+          <li class="top">ドラクエメニューの上枠</li>
+          <li class="menu08"><a class="battle" href="#">たたかう</a></li>
+          <li class="menu05"><a class="skill" href="#">とくぎ</a></li>
+          <li class="menu02"><a class="magic" href="#">じゅもん</a></li>
+          <li class="menu03 show-modal"><a class="item" href="#">どうぐ</a></li>
+          <li class="menu04"><a class="escape" href="#">にげる</a></li>
+          </ul>
+
+          <div class="modal hidden">
+            <ul id="dqmenu2">
+              <button class="close-modal"></button>
+              <li class="top">ドラクエメニューの上枠</li>
+              <li class="menu11"><a class="itemsubMenu" href="#">#</a></li>
+              <li class="menu12"><a class="itemsubMenu" href="#">#</a></li>
+              <li class="menu13"><a class="itemsubMenu" href="#">#</a></li>
+              <li class="menu14"><a class="itemsubMenu" href="#">#</a></li>
+              <li class="menu15"><a class="itemsubMenu" href="#">#</a></li>
+            </ul>
+          </div>
+      </section>
+      <div class="overlay hidden"></div>
+      
+      <section class="right">
+        <p class="message">
+          <span class="log1">バトルスタート</span><br>
+          <span class="log2"></span>
+        </p>
+        <p class="label-score" style="line-height: 3rem;">
+          HN: <span class="player">プレイヤー</span><br>
+          LV: <span class="level">12</span><br>
+          HP: <span class="HP">100</span><br>
+          MP: <span class="MP">0</span><br>
+          SP: <span class="SP">0</span><br>
+        </p>
+      </section>
+    </main>
+    <script src="script.js"></script>
+    <script src="modal.js"></script>
+  </body>
+</html>

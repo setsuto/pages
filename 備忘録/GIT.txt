@@ -1,0 +1,82 @@
+▼ 実際の作業
+--------------------------------------------------------------------------
+・リモートリポジトリをローカルにコピーする
+⇒ $ git clone [url]
+
+・リモートブランチの情報をローカルブランチにする取得して結合する
+⇒ $ git pull origin develop
+
+・作業ブランチ作成 & チェックアウト
+⇒ $ git checkout -b [feature/***]
+　※ブランチの名前を変更 / 削除
+　⇒ $git branch -m [ブランチ名] / git branch -d（-D） [ブランチ名]
+
+・すべての modified（修正されたファイル） を staged にする
+⇒ $ git add .
+
+・コミット
+⇒ $ git commit -m "[comment]"
+　※変更を取り消す場合 / コメント修正
+　　⇒ $ git reset HEAD（.） <ファイル名> / $ git commit --amend
+
+・現在のブランチの変更をリモートブランチに反映させる
+⇒ $ git push origin develop
+※プッシュ(push) ：ファイルの追加や変更の履歴をリモートリポジトリにアップロードするための操作
+
+
+
+▼コミット修正
+--------------------------------------------------------------------------
+git commit --amend
+⇒ 前回のコミットにファイルの追加を行ったり、コミットコメントの変更。
+
+git push -f origin xxxx
+⇒ オプション -f を付けることで強制的にpushできます。
+
+▼ GitHub Flow
+--------------------------------------------------------------------------
+1.clone or pullを実行、作業環境を整える。
+
+2.新しいブランチ(feature/作業番号)作成
+
+3.作成した新しいブランチ上で作業、コミットする。
+
+4.定期的にpush
+
+5.master/developにマージするためにプルリクエストを使う。
+例）feature/+++ ⇒ master/develop
+
+6.レビューを受ける
+
+7.master/developにマージしたらすぐにデプロイを行う
+
+8.最終承認が取れた後、作業していたブランチは削除する
+
+
+
+▼ FAQ
+--------------------------------------------------------------------------
+・ファイルの変更差分を表示する
+$ git log -p index.html
+
+・コマンドの省略
+$ git config --global alias.cm commit
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+
+
+
+▼コンフリクト対処
+--------------------------------------------------------------------------
+ブランチ：master / コンフリクト発生
+　　　　：feature / コンフリクト発生
+
+1.ローカルのmasterブランチを削除
+2.リモートリポジトリの情報を取得
+⇒ git featch
+3.リモートリポジトリのmasterブランチをローカルに作成
+⇒ git branch master origin/master
+4.featureブランチにmasterブランチをマージ
+⇒ git merge --no-ff origin/master
+5.ローカルで競合を解決
+6.featureにプッシュ

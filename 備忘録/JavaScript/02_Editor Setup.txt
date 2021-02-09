@@ -1,0 +1,31 @@
+vscode setting メモ
+
+
+■Node.js
+https://nodejs.org/ja/download/
+
+⇒バージョン：
+　$ node -v
+
+⇒インストール：
+　$ sudo npm install live-server -g
+
+⇒実行：
+　$ live-server
+　
+　
+■Plugin
+・auto close tag
+・auto rename tag
+・ESLint
+・image preview
+・japanese language
+・monokai pro
+・prettier - code formatter
+・setting sync
+・todo highlight
+・sass
+
+■FAQ
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference
+https://stackoverflow.com/
