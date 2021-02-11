@@ -12,7 +12,7 @@ https://github.com/setsuto/s_portfolio
 
 ### wordpress まとめサイト
 
-開発中  
+[デモページ](http://xs304607.xsrv.jp/)  
 https://github.com/setsuto/wp-stnblog  
 鯖：AWS
 
