@@ -4,20 +4,22 @@ https://qiita.com/stnb1201
 
 ## 制作物
 
-### ポートフォリオ
+### ポートフォリオまとめ
 
-[デモページ](https://stnb-portfolio.netlify.app/)  
+[デモページ](https://stnbportfolio.netlify.app/)  
 https://github.com/setsuto/s_portfolio  
 鯖：netlify
 
 ### wordpress まとめサイト
 
-[デモページ](http://xs304607.xsrv.jp/)  
+[デモページ](http://cuckoopost.com/)  
 https://github.com/setsuto/wp-stnblog  
 鯖：AWS
 
-### Jamstack 個人ブログ
+### ショッピングサイト
 
-[デモページ](https://rotten-potato.netlify.app/)  
-https://github.com/setsuto/rotten_potato  
+作成中
+https://github.com/setsuto/shopping_site
 鯖：netlify
+
+### TODO
